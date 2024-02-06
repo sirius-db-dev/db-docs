@@ -1,0 +1,8 @@
+{
+    "label": "PostgreSQL",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "Руководство по реляционным базам данных и PostgreSQL"
+    }
+}
