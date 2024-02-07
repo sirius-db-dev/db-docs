@@ -1,64 +1,70 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from 'clsx'
+import Heading from '@theme/Heading'
+import styles from './styles.module.css'
 
 const FeatureList = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
-];
+    {
+        title: 'PostgreSQL',
+        src: require('@site/static/img/postgresql.png').default,
+        description: <>Самая продвинутая реляционная база данных.</>
+    },
+    {
+        title: 'Elasticsearch',
+        src: require('@site/static/img/elastic.png').default,
+        description: (
+            <>
+                База данных, ориентированная на максимально быстрый поиск по произвольным комбинациям параметров, а так
+                же текстовый поиск.
+            </>
+        )
+    },
+    {
+        title: 'MongoDB',
+        src: require('@site/static/img/mongodb.png').default,
+        description: <>Популярная документо-ориентированная база данных.</>
+    },
+    {
+        title: 'Redis',
+        src: require('@site/static/img/redis.png').default,
+        description: <>in-memory key-value база данных.</>
+    },
 
-function Feature({Svg, title, description}) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
+    {
+        title: 'Prometheus',
+        src: require('@site/static/img/prometheus.png').default,
+        description: <>time-series база данных для хранения метрик.</>
+    },
+    {
+        title: 'Loki',
+        src: require('@site/static/img/loki.png').default,
+        description: <>Система сбора, хранения и поиска логов.</>
+    }
+]
+
+function Feature({ src, title, description }) {
+    return (
+        <div className={clsx('col col--4')}>
+            <div className='text--center'>
+                <img className={styles.featureSvg} src={src} />
+            </div>
+            <div className='text--center padding-horiz--md'>
+                <Heading as='h3'>{title}</Heading>
+                <p>{description}</p>
+            </div>
+        </div>
+    )
 }
 
 export default function HomepageFeatures() {
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section className={styles.features}>
+            <div className='container'>
+                <div className='row'>
+                    {FeatureList.map((props, idx) => (
+                        <Feature key={idx} {...props} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
 }
