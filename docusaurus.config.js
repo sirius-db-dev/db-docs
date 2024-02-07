@@ -8,7 +8,7 @@ import { themes as prismThemes } from 'prism-react-renderer'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'DB Docs',
+    title: 'DB Docs', //
     tagline: 'Документация по курсу "Разработка, администрирование и защита баз данных"',
     favicon: 'img/favicon.ico',
 
