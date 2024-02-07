@@ -43,13 +43,16 @@ const config = {
                     sidebarPath: './sidebars.js',
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/' // todo: подправить ссылки
+                    editUrl: 'https://github.com/sirius-db-dev/db-docs/tree/main'
                 },
                 theme: {}
             })
         ]
     ],
+    markdown: {
+        mermaid: true
+    },
+    themes: ['@docusaurus/theme-mermaid'],
 
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -68,7 +71,7 @@ const config = {
                         label: 'Документация'
                     },
                     {
-                        href: 'https://github.com/facebook/docusaurus',
+                        href: 'https://github.com/sirius-db-dev/db-docs',
                         label: 'GitHub',
                         position: 'right'
                     }
