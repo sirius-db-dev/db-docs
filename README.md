@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+[This website](https://sirius-db-dev.github.io/db-docs/) is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
