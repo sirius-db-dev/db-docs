@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  postgres:
+    image: 'postgres:15.5'
+    env_file: .env
+    ports:
+      - ${POSTGRES_PORT}:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}" ]
+      interval: 1s
+      timeout: 1s
+      retries: 60
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  migrator:
+    image: 'ghcr.io/amacneil/dbmate:2.12'
+    volumes:
+      - ./migrations:/db/migrations
+    command: -u "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@host.docker.internal:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable" up
+    depends_on:
+      postgres:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  flask:
+    build: .
+    command: python -m gunicorn --bind=0.0.0.0:${FLASK_PORT} app:app -w=4
+    env_file: .env
+    environment:
+      - DEBUG_MODE=false
+    ports:
+      - ${FLASK_PORT}:${FLASK_PORT}
+    stop_signal: SIGINT
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
