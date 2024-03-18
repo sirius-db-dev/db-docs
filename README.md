@@ -1,9 +1,23 @@
-docker compose up
+Запуск:
 
-docker compose up -d
+`docker compose up`
 
-docker compose down
+Запуск в detach моде (без прикрепления к терминалу):
 
-docker compose up --build
+`docker compose up -d`
 
-docker compose up postgres migrator -d
+Остановка:
+
+`docker compose stop`
+
+Остановка и удаление контейнеров:
+
+`docker compose down`
+
+Запуск с перебилдом (нужно когда изменили app.py или requirements.txt):
+
+`docker compose up --build`
+
+Запуск сервисов отдельно:
+
+`docker compose up postgres migrator -d`
