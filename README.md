@@ -21,3 +21,11 @@
 Запуск сервисов отдельно:
 
 `docker compose up postgres migrator -d`
+
+Для того, чтобы запустить `flask` через консоль или дебаггер, нужно в папке с проектом выполнить следующие команды:
+```shell
+python3 -m venv venv
+. ./venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
